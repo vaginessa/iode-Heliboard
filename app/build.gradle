@@ -7,13 +7,14 @@ android {
     buildToolsVersion = '34.0.0'
 
     defaultConfig {
-        applicationId "helium314.keyboard"
+        applicationId "org.dslul.openboard.inputmethod.latin"
         minSdkVersion 21
         targetSdkVersion 34
-        versionCode 1004
+        versionCode 1004 + iodeVersionCode.toInteger()
         versionName '1.3'
+        versionNameSuffix "-iode." + iodeVersionCode
         ndk {
-            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+            abiFilters 'arm64-v8a'
         }
         proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
@@ -38,7 +39,7 @@ android {
             jniDebuggable false
             applicationIdSuffix ".debug"
         }
-        archivesBaseName = "HeliBoard_" + defaultConfig.versionName
+        archivesBaseName = "app"
     }
 
     buildFeatures {
